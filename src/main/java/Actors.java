@@ -3,13 +3,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
-public class Actors {
-    public static final String API_KEY = "Your API_KEY";   // TODO --> add your api key about Actors here
-    String netWorth;
-    Boolean isAlive;
+import org.json.JSONObject;
+import java.util.*;
 
-    public Actors(String netWorth, boolean isAlive){
-        //TODO --> (Write a proper constructor using the get_from_api functions)
+public class Actors {
+    public static final String API_KEY = "fs3WfKIIowtgJ3sUIQCX/A==ouSZYkG2fPMEx6d8";   // TODO --> add your api key about Actors here
+
+
+    public Actors(String netWorth, boolean isAlive){ //constructor
+        netWorth = "";
+        isAlive = false;
     }
     @SuppressWarnings({"deprecation"})
     /**
@@ -43,22 +46,56 @@ public class Actors {
             return null;
         }
     }
-    public double getNetWorthViaApi(String actorsInfoJson){
+    public int getNetWorthViaApi(String actorsInfoJson){
         //TODO --> (This function must return the "NetWorth")
-        double result = 0.0;
-        return result;
+        int result = 0;
+        actorsInfoJson = actorsInfoJson.substring(1 , actorsInfoJson.length() - 1);
+        if(actorsInfoJson.contains("net_worth")){
+            JSONObject jsonobject = new JSONObject(actorsInfoJson);
+            result = jsonobject.getInt("net_worth");
+            return result;
+        }
+        else{
+            System.out.println("Has not found ...");
+            return 0;
+        }
     }
 
     public boolean isAlive(String actorsInfoJson){
         //TODO --> (If your chosen actor is alive it must return true otherwise it must return false)
-        boolean statues = false;
-        return statues;
+        boolean status = false;
+        actorsInfoJson = actorsInfoJson.substring(1 , actorsInfoJson.length() - 1);
+        if(actorsInfoJson.contains("is_alive")){
+            JSONObject jsonobject = new JSONObject(actorsInfoJson);
+            status = jsonobject.getBoolean("is_alive");
+            if(status == false){
+                System.out.println("Died");
+                return status;
+            }
+            else{
+                System.out.println("Alive");
+                return status;
+            }
+        }
+        else{
+            System.out.println("Has not found ...");
+            return false;
+        }
     }
 
     public String getDateOfDeathViaApi(String actorsInfoJson){
         //TODO --> (If your chosen actor is deceased it must return the date of death)  -->
         String date = "";
-        return date;
+        actorsInfoJson = actorsInfoJson.substring(1 , actorsInfoJson.length() - 1);
+        if(actorsInfoJson.contains("death")){
+            JSONObject jsonobject = new JSONObject(actorsInfoJson);
+            date = jsonobject.getString("death");
+            return date;
+        }
+        else{
+            return "Has not found...";
+        }
     }
+    //occupation , height , birthday , age
 
 }

@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class MovieTest {
+public class
+MovieTest {
     static String data1 , data2;
     static Movie movie;
 

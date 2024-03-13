@@ -1,62 +1,29 @@
-# Project Title
+# Movies and Actors
+##### some related information about movies and actors/actresses
 
-Simple overview of use/purpose.
-
-## Description
-
-An in-depth paragraph about your project and overview of use.
+## Describtion
+#### in this program you can enter the name of your desire movie or actor then give the related information about.
 
 ## Getting Started
-
 ### Dependencies
-
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
+* Gradle
+* intelliJ or or other IDEs to run the java project
 ## Help
+>for undrestanding what is exactly API i saw the Judi's video at first, and I suggest you see this video
+## Acknowledgments : 
+| English Resources                                                                                               | Persian Resources                                                        |
+|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| for JSON : https://youtu.be/r4MLHHLctKw?si=BireaVIepqnyAfvD                                                     | for API (Judi's video): https://youtu.be/WPZnqMGRyHg?si=chAJ47cuC84XiA3r |
+| part1 : for writing a README i read from this website : https://www.freecodecamp.org/news/markdown-cheat-sheet/ |
+|  part2 : for writing a README i read from this website : https://www.freecodecamp.org/news/how-to-use-markdown-in-vscode/            
+## Authors :
+#### one of the students of CS of SBU, Fateme Lashkari;
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+# 
+#
 
-## Authors
+#### **Enjoy it... :))))**
+>![API](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tpgi.com%2Farc-platform%2Fapi%2F&psig=AOvVaw1POG0ZndfGcckGFKVcTKV-&ust=1710413408766000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCMjMjM-I8YQDFQAAAAAdAAAAABAJ)
 
-Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+ 
