@@ -13,6 +13,7 @@ public class Movie {
     int ImdbVotes;
     ArrayList<String> actorsList;
     String rating;
+    String error = "Has not found...";
 
     public Movie(ArrayList<String> actorsList, String rating, int ImdbVotes){
         //the constructor
@@ -53,8 +54,14 @@ public class Movie {
     public int getImdbVotesViaApi(String moviesInfoJson){
         int ImdbVotes = 0;
         JSONObject jsonObject = new JSONObject(moviesInfoJson);
-        String imdbVotes = jsonObject.getString("imdbVotes");
-        return Integer.parseInt(imdbVotes.replace(",", ""));
+        if(moviesInfoJson.contains("imdbVotes")){
+            String imdbVotes = jsonObject.getString("imdbVotes");
+            return Integer.parseInt(imdbVotes.replace(",", ""));
+        }
+        else{
+            System.out.println(error);
+            return 0;
+        }
         // NOTICE :: you are not permitted to convert this function to return a String instead of an int !!!
 
     }
@@ -64,24 +71,36 @@ public class Movie {
         // where the source is "Internet Movie Database")  -->
         String rating = "";
         JSONObject jsonObject = new JSONObject(moviesInfoJson);
-        JSONArray ratingsArray = jsonObject.getJSONArray("Ratings");
-        for (int i = 0; i < ratingsArray.length(); i++) {
-            JSONObject ratingObject = ratingsArray.getJSONObject(i);
-            String source = ratingObject.getString("Source");
-            if (source.equals("Internet Movie Database")) {
-                return ratingObject.getString("Value");
+        if(moviesInfoJson.contains("Ratings")){
+            JSONArray ratingsArray = jsonObject.getJSONArray("Ratings");
+            for (int i = 0; i < ratingsArray.length(); i++) {
+                JSONObject ratingObject = ratingsArray.getJSONObject(i);
+                String source = ratingObject.getString("Source");
+                if (source.equals("Internet Movie Database")) {
+                    return ratingObject.getString("Value");
+                }
             }
+            return "";
         }
-        return "";
+        else{
+            return error;
+        }
     }
 
     public ArrayList<String> getActorListViaApi(String moviesInfoJson){
         JSONObject jsonObject = new JSONObject(moviesInfoJson);
-        String actors = jsonObject.getString("Actors");
-        String[] actorArray = actors.split(", ");
-        for (String actor : actorArray) {
-            actorsList.add(actor);
+        if(moviesInfoJson.contains("Actors")){
+            String actors = jsonObject.getString("Actors");
+            String[] actorArray = actors.split(", ");
+            for (String actor : actorArray) {
+                actorsList.add(actor);
+            }
+            return actorsList;
         }
-        return actorsList;
+        else{
+
+            return new ArrayList<>();
+        }
     }
+    //Year , Genre , Plot , Awards , Type
 }

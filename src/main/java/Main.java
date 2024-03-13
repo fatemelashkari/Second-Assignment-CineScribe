@@ -13,13 +13,17 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
         if(choice == 1){
-            System.out.println("Enter the name of the movie : ");
             Movie movie = new Movie(new ArrayList<>() , "",0);
+            System.out.print("Enter the name of the movie : ");
             Scanner input = new Scanner(System.in);
             String movieName = input.nextLine();
+            System.out.println("");
             String movieData = movie.getMovieData(movieName);
+            System.out.print("ImdbVotes : ");
             System.out.println(movie.getImdbVotesViaApi(movieData));
+            System.out.print("Rating : ");
             System.out.println(movie.getRatingViaApi(movieData));
+            System.out.print("List of the actors : ");
             System.out.println(movie.getActorListViaApi(movieData));
         }
         else if(choice == 2){
@@ -28,9 +32,19 @@ public class Main {
             System.out.println("Enter the name of the actor : ");
             String actorName = scanner.nextLine();
             String actorData = actors.getActorData(actorName);
-            System.out.println(actors.getNetWorthViaApi(actorData));
-            System.out.println(actors.isAlive(actorData));
-            System.out.println(actors.getDateOfDeathViaApi(actorData));
+            System.out.print("Net Worth : ");
+            if(actors.getNetWorthViaApi(actorData) != 0){
+                System.out.println(actors.getNetWorthViaApi(actorData));
+            }
+            else{
+                System.out.print("");
+            }
+            System.out.print("The status of living : ");
+            if(actors.isAlive(actorData) == false){
+                System.out.print("The date of death : ");
+                System.out.println(actors.getDateOfDeathViaApi(actorData));
+
+            }
         }
         else{
             System.out.println("Invalid...");
